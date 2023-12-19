@@ -19,7 +19,7 @@ func main() {
 }
 
 func run() {
-	fmt.Println("Starting application of port:", port)
+	fmt.Println("Starting application on port:", port)
 
 	app.InProduction = false
 
@@ -32,10 +32,9 @@ func run() {
 	app.UseCahce = false
 	handlers.NewHandlers(repo)
 	renderer.NewTemplate(&app)
-	app.InfoLog.Printf("Server is started on port %s",port)
 
-	serv:=&http.Server{
-		Addr: port,
+	serv := &http.Server{
+		Addr:    port,
 		Handler: routes(&app),
 	}
 	err = serv.ListenAndServe()

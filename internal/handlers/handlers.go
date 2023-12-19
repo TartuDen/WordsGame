@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	"github.com/TartuDen/WordsGame/internal/config"
+	"github.com/TartuDen/WordsGame/internal/models"
+	"github.com/TartuDen/WordsGame/internal/renderer"
 )
 
 var Repo *Repository
@@ -23,5 +25,5 @@ func NewHandlers(r *Repository) {
 }
 
 func GetMainHandler(w http.ResponseWriter, r *http.Request) {
-
+	renderer.RendererTemplate(w, "main.page.html", &models.TemplateData{})
 }
