@@ -1,6 +1,10 @@
 package handlers
 
-import "github.com/TartuDen/WordsGame/internal/config"
+import (
+	"net/http"
+
+	"github.com/TartuDen/WordsGame/internal/config"
+)
 
 var Repo *Repository
 
@@ -14,7 +18,10 @@ func NewRepo(a *config.AppConfig) *Repository {
 	}
 }
 
-
-func NewHandlers(r *Repository){
+func NewHandlers(r *Repository) {
 	Repo = r
+}
+
+func GetMainHandler(w http.ResponseWriter, r *http.Request) {
+
 }
